@@ -9,8 +9,9 @@ ENV ANDROID_SDK_ROOT $ANDROID_HOME
 ENV PATH $PATH:$HOME/bin:$ANDROID_HOME/platform-tools
 
 RUN mkdir -p \
-    build \
-    android-sdk \
+    ${HOME} \
+    /android-sdk \
+    ${ANDROID_HOME} \
     $HOME/tailscale-android
 
 # To enable running android tools such as aapt
