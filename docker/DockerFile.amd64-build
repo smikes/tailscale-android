@@ -57,7 +57,7 @@ COPY Makefile Makefile
 RUN make androidsdk
 
 # Preload Gradle
-COPY android/gradlew android/gradlew
+COPY android/gradlew android/build.gradle android
 COPY android/gradle android/gradle
 RUN ./android/gradlew
 
