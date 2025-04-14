@@ -15,15 +15,12 @@ RUN mkdir -p \
     $HOME/tailscale-android
 
 # To enable running android tools such as aapt
-RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y libz1 libstdc++6 unzip zip
-# For Go:
-RUN apt-get -y --no-install-recommends install curl gcc
-RUN apt-get -y --no-install-recommends install ca-certificates libc6-dev git
-
-RUN apt-get -y install make
-
-# Make android sdk location, the later make step will populate it.
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y libz1 libstdc++6 unzip zip && \
+    apt-get -y --no-install-recommends install curl gcc && \
+    apt-get -y --no-install-recommends install ca-certificates libc6-dev git && \
+    apt-get -y install make
 
 # We need some version of Go new enough to support the "embed" package
 # to run "go run tailscale.com/cmd/printdep" to figure out which Tailscale Go
