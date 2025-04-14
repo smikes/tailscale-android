@@ -8,6 +8,10 @@ ENV ANDROID_HOME $HOME/android-sdk
 ENV ANDROID_SDK_ROOT $ANDROID_HOME
 ENV PATH $PATH:$HOME/bin:$ANDROID_HOME/platform-tools
 
+RUN mkdir -p build
+RUN mkdir android-sdk
+RUN mkdir -p $HOME/tailscale-android
+
 # To enable running android tools such as aapt
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y libz1 libstdc++6 unzip zip
@@ -17,10 +21,7 @@ RUN apt-get -y --no-install-recommends install ca-certificates libc6-dev git
 
 RUN apt-get -y install make
 
-RUN mkdir -p build
-
 # Make android sdk location, the later make step will populate it.
-RUN mkdir android-sdk
 
 # We need some version of Go new enough to support the "embed" package
 # to run "go run tailscale.com/cmd/printdep" to figure out which Tailscale Go
@@ -28,7 +29,6 @@ RUN mkdir android-sdk
 RUN curl -L https://go.dev/dl/go1.23.0.linux-amd64.tar.gz | tar -C /usr/local -zxv
 RUN ln -s /usr/local/go/bin/go /usr/bin
 
-RUN mkdir -p $HOME/tailscale-android
 RUN git config --global --add safe.directory $HOME/tailscale-android
 WORKDIR $HOME/tailscale-android
 
