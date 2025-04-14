@@ -59,7 +59,9 @@ RUN make androidsdk
 # Preload Gradle
 COPY android/gradlew android/build.gradle android
 COPY android/gradle android/gradle
-RUN ./android/gradlew
+
+RUN chmod 755 android/gradlew && \
+    ./android/gradlew
 
 # Build the android app, bump the playstore version code, and make the tv release
 CMD make clean && make release && make bump_version_code && make release-tv
