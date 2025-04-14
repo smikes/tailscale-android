@@ -17,8 +17,24 @@ RUN mkdir -p \
 # To enable running android tools such as aapt
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get -y install libz1 libstdc++6 unzip zip make && \
-    apt-get -y --no-install-recommends install curl gcc ca-certificates libc6-dev git && \
+    apt-get -y install \
+	    \
+	    libz1 \
+	    libstdc++6 \
+	    unzip \
+	    zip \
+	    make \
+	    \
+    && \
+    apt-get -y --no-install-recommends install \
+	    \
+	    curl \
+	    gcc \
+	    ca-certificates \
+	    libc6-dev \
+	    git \
+	    \
+    && \
     apt-get -y clean && \
     rm -rf \
        /var/cache/debconf \
