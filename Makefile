@@ -10,7 +10,7 @@
 # with this name, it will be used.
 #
 # The convention here is tailscale-android-build-amd64-<date>
-DOCKER_IMAGE := tailscale-android-build-amd64-031325-1
+DOCKER_IMAGE := tailscale-android-build-amd64-041425-1
 export TS_USE_TOOLCHAIN=1
 
 # Auto-select an NDK from ANDROID_HOME (choose highest version available)
