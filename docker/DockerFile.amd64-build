@@ -17,10 +17,8 @@ RUN mkdir -p \
 # To enable running android tools such as aapt
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get -y install libz1 libstdc++6 unzip zip && \
-    apt-get -y --no-install-recommends install curl gcc && \
-    apt-get -y --no-install-recommends install ca-certificates libc6-dev git && \
-    apt-get -y install make
+    apt-get -y install libz1 libstdc++6 unzip zip make && \
+    apt-get -y --no-install-recommends install curl gcc ca-certificates libc6-dev git
 
 # We need some version of Go new enough to support the "embed" package
 # to run "go run tailscale.com/cmd/printdep" to figure out which Tailscale Go
