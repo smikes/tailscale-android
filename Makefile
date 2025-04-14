@@ -360,7 +360,7 @@ docker-shell: docker-build-image ## Builds a docker image with the android build
 
 .PHONY: docker-remove-shell-image
 docker-remove-shell-image: ## Removes all docker shell image
-	docker rmi --force tailscale-android-shell-amd64
+	@echo "docker-remove-shell-image retained for backward compatibility, but is a no-op; docker-shell now uses build image"
 
 .PHONY: clean
 clean: ## Remove build artifacts. Does not purge docker build envs. Use dockerRemoveEnv for that.
